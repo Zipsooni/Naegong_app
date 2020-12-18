@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/stickertabmenu"
+        android:icon="@drawable/sticker"
+        android:enabled="true"
+        android:title="Stickerbook" />
+
+    <item android:id="@+id/rankingtabmenu"
+        android:icon="@drawable/ranking"
+        android:enabled="true"
+        android:title="Raning"/>
+
+    <item android:id="@+id/Hometabmenu"
+        android:icon="@drawable/homemenu"
+        android:enabled="true"
+        android:title="Home"/>
+
+    <item android:id="@+id/studyvlogtabmenu"
+        android:icon="@drawable/studyvlog"
+        android:enabled="true"
+        android:title="Studyvlog"/>
+
+    <item android:id="@+id/settingtabmenu"
+        android:icon="@drawable/setting"
+        android:enabled="true"
+        android:title="Setting"/>
+</menu>
+

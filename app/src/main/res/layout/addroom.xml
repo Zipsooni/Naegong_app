@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/addRoom_window"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="270dp"
+    android:layout_width="380dp"
+    android:layout_gravity="center"
+    android:background="@drawable/calendar_deco">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="24dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/studyroomname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="스터디룸 : "
+            android:textSize="18dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/typo"/>
+
+        <EditText
+            android:id="@+id/roomname_type"
+            android:layout_toRightOf="@+id/studyroomname"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:hint=" 방 이름을 입력하세요"
+            android:textSize="15dp"
+            android:fontFamily="@font/typo"/>
+
+            <TextView
+                android:id="@+id/hashtag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="해시태그 입력 : "
+                android:textSize="18dp"
+                android:layout_marginTop="58dp"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/typo"/>
+
+            <EditText
+                android:id="@+id/hashtag_type"
+                android:layout_toRightOf="@+id/hashtag"
+                android:layout_below="@+id/roomname_type"
+                android:layout_marginTop="10dp"
+                android:layout_width="168dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:hint=" 최대 5개"
+                android:textSize="15dp"
+                android:fontFamily="@font/typo"/>
+
+            <TextView
+                android:id="@+id/hash_category1"
+                android:layout_below="@+id/hashtag"
+                android:background="@drawable/hashtag_deco"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:text="    #정보처리기사     "
+                android:gravity="center"
+                android:fontFamily="@font/typo"
+                android:textColor="@android:color/white"
+                android:textSize="10dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/hash_category2"
+                android:layout_below="@+id/hashtag"
+                android:background="@drawable/hashtag_deco"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:text="    #정처기     "
+                android:gravity="center"
+                android:fontFamily="@font/typo"
+                android:textColor="@android:color/white"
+                android:textSize="10dp"
+                android:layout_marginLeft="110dp"/>
+
+
+            <TextView
+                android:id="@+id/howmany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="방 인원 수 : "
+                android:textSize="18dp"
+                android:layout_marginTop="65dp"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@id/hashtag"
+                android:fontFamily="@font/typo"/>
+
+            <EditText
+                android:id="@+id/number_type"
+                android:layout_toRightOf="@+id/howmany"
+                android:layout_below="@+id/hash_category2"
+                android:layout_marginTop="10dp"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:hint=" 인원 수를 입력하세요"
+                android:textSize="15dp"
+                android:fontFamily="@font/typo"/>
+
+            <Button
+                android:id="@+id/makestudyroom"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:text="스터디룸 생성"
+                android:textSize="10dp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/hashtag_deco"
+                android:fontFamily="@font/typo"
+                android:layout_below="@+id/howmany"
+                android:layout_marginLeft="220dp"
+                android:layout_marginTop="20dp"/>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
