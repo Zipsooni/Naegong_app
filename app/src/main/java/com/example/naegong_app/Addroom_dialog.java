@@ -1,32 +1,14 @@
 package com.example.naegong_app;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
-
-import org.jitsi.meet.sdk.JitsiMeetActivity;
-import org.jitsi.meet.sdk.JitsiMeetConferenceOptions;
-
-import java.net.URL;
-import java.util.ArrayList;
-
-import static androidx.core.content.ContextCompat.startActivity;
 
 public class Addroom_dialog extends Dialog{
 
@@ -42,7 +24,7 @@ public class Addroom_dialog extends Dialog{
     }
 
     public void setmode(Boolean m){ // study room mode에 따라 달라짐.
-        mode = m; //False : 소리, 마이크 켜짐, True : 조용히 공
+        mode = m; //False : 소리, 마이크 켜짐, True : 조용히 공부
     }
 
     @Override
