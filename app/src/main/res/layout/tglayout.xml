@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_app_bar_contents"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@null"
-    app:layout_collapseMode="parallax"
-    app:layout_constraintBottom_toBottomOf="parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_gravity="center_horizontal">
-
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -33,198 +28,195 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="900dp">
-
-        <ImageView
-            android:id="@+id/tgimg"
-            android:layout_width="wrap_content"
-            android:layout_height="270dp"
-            android:layout_gravity="top|center"
-            android:src="@drawable/studytogether" />
-
-        <TextView
-            android:id="@+id/tgcopy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text = "STUDY TOGETHER"
-            android:layout_below="@+id/tgimg"
-            android:gravity="center"
-            android:textSize="24dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/typo"/>
-
-            <ImageView
-                android:layout_width="350dp"
-                android:layout_height="40dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:layout_below="@+id/tgcopy"
-                android:background= "@drawable/search"
-                />
-
-            <EditText
-                android:id="@+id/tgtag"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:layout_below="@+id/tgcopy"
-                android:hint="#태그검색"
-                android:textSize="16dp"
-                android:fontFamily="@font/typo"
-                android:background="@android:color/transparent"
-                />
-
 
             <RelativeLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_below="@+id/tgtag">
+                android:paddingBottom="80dp">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/room1"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="32dp"
-                    android:src="@drawable/roompic"
-                    app:civ_border_color="#FF000000"
-                    app:civ_border_width="0dp" />
+                <ImageView
+                    android:id="@+id/tgimg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="230dp"
+                    android:layout_gravity="top|center"
+                    android:padding="10dp"
+                    android:src="@drawable/studytogether" />
 
                 <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/room1"
-                android:text = "#회계사"
-                android:fontFamily="@font/typo"
-                android:textSize="13dp"
-                android:layout_marginTop="7dp"
-                android:textColor="@android:color/black"
-                />
+                    android:id="@+id/tgcopy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tgimg"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/typo"
+                    android:gravity="center"
+                    android:text="STUDY TOGETHER"
+                    android:textSize="20dp" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/room2"
-                android:layout_toRightOf="@+id/room1"
-                android:layout_marginLeft="38dp"
-                android:layout_marginTop="32dp"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center_vertical"
-                app:civ_border_color="#FF000000"
-                app:civ_border_width="0dp"
-                android:src="@drawable/roompic"/>
+                <EditText
+                    android:id="@+id/tgtag"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tgcopy"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/search"
+                    android:fontFamily="@font/typo"
+                    android:hint="#태그검색"
+                    android:padding="10dp"
+                    android:textSize="16dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/room2"
-                android:layout_marginLeft="138dp"
-                android:fontFamily="@font/typo"
-                android:text="#사진기능사"
-                android:textColor="@android:color/black"
-                android:layout_marginTop="7dp"
-                android:textSize="13dp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tgtag"
+                    android:gravity="center">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/room3"
-                android:layout_marginTop="32dp"
-                android:layout_toRightOf="@+id/room2"
-                android:layout_marginLeft="38dp"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center_vertical"
-                app:civ_border_color="#FF000000"
-                app:civ_border_width="0dp"
-                android:src="@drawable/roompic"/>
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/tgroom1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="25dp"
+                        android:padding="10dp"
+                        android:src="@drawable/ng1"
+                        app:civ_border_color="#7E7E7E"
+                        app:civ_border_width="0.1dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/room3"
-                android:text = "#토익모의고사"
-                android:fontFamily="@font/typo"
-                android:textSize="13dp"
-                android:layout_marginLeft="277dp"
-                android:layout_marginTop="7dp"
-                android:textColor="@android:color/black"
-                />
+                    <TextView
+                        android:id="@+id/tgroom1tv"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tgroom1"
+                        android:layout_marginTop="7dp"
+                        android:fontFamily="@font/typo"
+                        android:text="#회계사"
+                        android:textColor="@android:color/black"
+                        android:textSize="13dp" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/room4"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_below="@+id/room3"
-                android:layout_marginTop="32dp"
-                android:src="@drawable/roompic"
-                app:civ_border_color="#FF000000"
-                app:civ_border_width="0dp" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/tgroom2"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="25dp"
+                        android:layout_toRightOf="@+id/tgroom1"
+                        android:padding="10dp"
+                        android:src="@drawable/ng1"
+                        app:civ_border_color="#7E7E7E"
+                        app:civ_border_width="0.1dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/room4"
-                android:text = "#정보처리기사"
-                android:fontFamily="@font/typo"
-                android:textSize="13dp"
-                android:layout_marginTop="7dp"
-                android:textColor="@android:color/black"
-                />
+                    <TextView
+                        android:id="@+id/tgroom2tv"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tgroom2"
+                        android:layout_marginTop="7dp"
+                        android:layout_toRightOf="@+id/tgroom1tv"
+                        android:fontFamily="@font/typo"
+                        android:text="#사진기능사"
+                        android:textColor="@android:color/black"
+                        android:textSize="13dp" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/tgroom3"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="25dp"
+                        android:layout_toRightOf="@+id/tgroom2"
+                        android:padding="10dp"
+                        android:src="@drawable/ng1"
+                        app:civ_border_color="#7E7E7E"
+                        app:civ_border_width="0.1dp" />
+
+                    <TextView
+                        android:id="@+id/tgroom3tv"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tgroom3"
+                        android:layout_marginTop="7dp"
+                        android:layout_toRightOf="@+id/tgroom2tv"
+                        android:fontFamily="@font/typo"
+                        android:text="#토익모의고사"
+                        android:textColor="@android:color/black"
+                        android:textSize="13dp" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/tgroom4"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_below="@+id/tgroom3"
+                        android:layout_marginTop="33dp"
+                        android:padding="10dp"
+                        android:src="@drawable/ng1"
+                        app:civ_border_color="#7E7E7E"
+                        app:civ_border_width="0.1dp" />
+
+                    <TextView
+                        android:id="@+id/tgroom4tv"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tgroom4"
+                        android:layout_marginTop="7dp"
+                        android:fontFamily="@font/typo"
+                        android:text="#정보처리기사"
+                        android:textColor="@android:color/black"
+                        android:textSize="13dp" />
 
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/room5"
-                android:layout_below="@+id/room2"
-                android:layout_marginTop="32dp"
-                android:layout_toRightOf="@+id/room4"
-                android:layout_marginLeft="38dp"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center_vertical"
-                app:civ_border_color="#FF000000"
-                app:civ_border_width="0dp"
-                android:src="@drawable/roompic"/>
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/tgroom5"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_below="@+id/tgroom2"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="33dp"
+                        android:layout_toRightOf="@+id/tgroom4"
+                        android:padding="10dp"
+                        android:src="@drawable/ng1"
+                        app:civ_border_color="#7E7E7E"
+                        app:civ_border_width="0.1dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/room5"
-                android:text = "#토익기초"
-                android:fontFamily="@font/typo"
-                android:textSize="13dp"
-                android:layout_marginLeft="138dp"
-                android:layout_marginTop="7dp"
-                android:textColor="@android:color/black"
-                />
+                    <TextView
+                        android:id="@+id/tgroom5tv"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tgroom5"
+                        android:layout_marginTop="7dp"
+                        android:layout_toRightOf="@+id/tgroom4tv"
+                        android:fontFamily="@font/typo"
+                        android:text="#토익기초"
+                        android:textColor="@android:color/black"
+                        android:textSize="13dp" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/room6"
-                android:layout_below="@+id/room3"
-                android:layout_marginTop="32dp"
-                android:layout_toRightOf="@+id/room5"
-                android:layout_marginLeft="38dp"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center_vertical"
-                app:civ_border_color="#FF000000"
-                app:civ_border_width="0dp"
-                android:src="@drawable/roompic"/>
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/tgroom6"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_below="@+id/tgroom3"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="32dp"
+                        android:layout_toRightOf="@+id/tgroom5"
+                        android:padding="10dp"
+                        android:src="@drawable/ng1"
+                        app:civ_border_color="#7E7E7E"
+                        app:civ_border_width="0.1dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/room6"
-                android:text = "#컴퓨터활용능력"
-                android:fontFamily="@font/typo"
-                android:textSize="13dp"
-                android:layout_marginLeft="277dp"
-                android:layout_marginTop="7dp"
-                android:textColor="@android:color/black"
-                />
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tgroom6"
+                        android:layout_marginTop="7dp"
+                        android:layout_toRightOf="@+id/tgroom5tv"
+                        android:fontFamily="@font/typo"
+                        android:text="#컴활 1급"
+                        android:textColor="@android:color/black"
+                        android:textSize="13dp" />
 
-        </RelativeLayout>
-        </RelativeLayout>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
         </ScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_app_bar_contents"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@null"
-    app:layout_collapseMode="parallax"
-    app:layout_constraintBottom_toBottomOf="parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_gravity="center_horizontal">
-
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -35,14 +30,14 @@
             android:layout_height="match_parent">
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="900dp">
+                android:layout_height="wrap_content"
+                android:paddingBottom="80dp">
 
                 <ImageView
                     android:id="@+id/dbimg"
                     android:layout_width="wrap_content"
-                    android:paddingLeft="30dp"
-                    android:paddingRight="30dp"
-                    android:layout_height="270dp"
+                    android:padding="20dp"
+                    android:layout_height="230dp"
                     android:layout_gravity="top|center"
                     android:src="@drawable/debateimg" />
 
@@ -53,31 +48,22 @@
                     android:text = "SHARE YOUR OPINION"
                     android:layout_below="@+id/dbimg"
                     android:gravity="center"
-                    android:textSize="24dp"
+                    android:textSize="20dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/typo"/>
 
-                <ImageView
-                    android:layout_width="350dp"
-                    android:layout_height="40dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="20dp"
-                    android:layout_below="@+id/dbcopy"
-                    android:background= "@drawable/search"
-                    />
-
                 <EditText
+                    android:background="@drawable/search"
                     android:id="@+id/dbtag"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:layout_below="@+id/dbcopy"
                     android:hint="#태그검색"
                     android:textSize="16dp"
-                    android:fontFamily="@font/typo"
-                    android:background="@android:color/transparent"
-                    />
+                    android:padding="10dp"
+                    android:fontFamily="@font/typo"/>
 
 
                 <RelativeLayout
@@ -90,16 +76,18 @@
                         android:id="@+id/dbroom1"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:layout_marginTop="32dp"
-                        android:src="@drawable/roompic"
-                        app:civ_border_color="#FF000000"
-                        app:civ_border_width="0dp" />
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ng1"
+                        app:civ_border_color="#7E7E7E"
+                        app:civ_border_width="0.1dp"
+                        android:padding="10dp"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/dbroom1tv"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/dbroom1"
-                        android:text = "#토익스피킹"
+                        android:text = "#회계사"
                         android:fontFamily="@font/typo"
                         android:textSize="13dp"
                         android:layout_marginTop="7dp"
@@ -109,46 +97,48 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/dbroom2"
                         android:layout_toRightOf="@+id/dbroom1"
-                        android:layout_marginLeft="38dp"
-                        android:layout_marginTop="32dp"
+                        android:layout_marginTop="25dp"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center_vertical"
-                        app:civ_border_color="#FF000000"
-                        app:civ_border_width="0dp"
-                        android:src="@drawable/roompic"/>
+                        app:civ_border_color="#7E7E7E"
+                        app:civ_border_width="0.1dp"
+                        android:src="@drawable/ng1"
+                        android:padding="10dp"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/dbroom2tv"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/dbroom2"
-                        android:layout_marginLeft="138dp"
+                        android:layout_toRightOf="@+id/dbroom1tv"
                         android:fontFamily="@font/typo"
-                        android:text="#독서토론방"
+                        android:text="#사진기능사"
                         android:textColor="@android:color/black"
                         android:layout_marginTop="7dp"
                         android:textSize="13dp" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/dbroom3"
-                        android:layout_marginTop="32dp"
+                        android:layout_marginTop="25dp"
                         android:layout_toRightOf="@+id/dbroom2"
-                        android:layout_marginLeft="38dp"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center_vertical"
-                        app:civ_border_color="#FF000000"
-                        app:civ_border_width="0dp"
-                        android:src="@drawable/roompic"/>
+                        app:civ_border_color="#7E7E7E"
+                        app:civ_border_width="0.1dp"
+                        android:src="@drawable/ng1"
+                        android:padding="10dp"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/dbroom3tv"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/dbroom3"
-                        android:text = "#OPIC AL레벨"
+                        android:layout_toRightOf="@+id/dbroom2tv"
+                        android:text = "#토익모의고사"
                         android:fontFamily="@font/typo"
                         android:textSize="13dp"
-                        android:layout_marginLeft="277dp"
                         android:layout_marginTop="7dp"
                         android:textColor="@android:color/black"
                         />
@@ -158,16 +148,18 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_below="@+id/dbroom3"
-                        android:layout_marginTop="32dp"
-                        android:src="@drawable/roompic"
-                        app:civ_border_color="#FF000000"
-                        app:civ_border_width="0dp" />
+                        android:layout_marginTop="33dp"
+                        android:src="@drawable/ng1"
+                        app:civ_border_color="#7E7E7E"
+                        app:civ_border_width="0.1dp"
+                        android:padding="10dp"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/dbroom4tv"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/dbroom4"
-                        android:text = "#공무원면접"
+                        android:text = "#정보처리기사"
                         android:fontFamily="@font/typo"
                         android:textSize="13dp"
                         android:layout_marginTop="7dp"
@@ -177,50 +169,50 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/dbroom5"
-                        android:layout_below="@+id/dbroom2"
-                        android:layout_marginTop="32dp"
-                        android:layout_toRightOf="@+id/dbroom4"
-                        android:layout_marginLeft="38dp"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
+                        android:layout_below="@+id/dbroom2"
                         android:layout_gravity="center_vertical"
-                        app:civ_border_color="#FF000000"
-                        app:civ_border_width="0dp"
-                        android:src="@drawable/roompic"/>
+                        android:layout_marginTop="33dp"
+                        android:layout_toRightOf="@+id/dbroom4"
+                        android:padding="10dp"
+                        android:src="@drawable/ng1"
+                        app:civ_border_color="#7E7E7E"
+                        app:civ_border_width="0.1dp" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/dbroom5tv"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/dbroom5"
-                        android:text = "#오픽 IH레벨"
-                        android:fontFamily="@font/typo"
-                        android:textSize="13dp"
-                        android:layout_marginLeft="138dp"
+                        android:layout_toRightOf="@+id/dbroom4tv"
                         android:layout_marginTop="7dp"
+                        android:fontFamily="@font/typo"
+                        android:text="#토익기초"
                         android:textColor="@android:color/black"
-                        />
+                        android:textSize="13dp" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/dbroom6"
                         android:layout_below="@+id/dbroom3"
                         android:layout_marginTop="32dp"
                         android:layout_toRightOf="@+id/dbroom5"
-                        android:layout_marginLeft="38dp"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center_vertical"
-                        app:civ_border_color="#FF000000"
-                        app:civ_border_width="0dp"
-                        android:src="@drawable/roompic"/>
+                        app:civ_border_color="#7E7E7E"
+                        app:civ_border_width="0.1dp"
+                        android:src="@drawable/ng1"
+                        android:padding="10dp"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/dbroom6"
-                        android:text = "#취업 스터디"
+                        android:layout_toRightOf="@+id/dbroom5tv"
+                        android:text = "#컴활 1급"
                         android:fontFamily="@font/typo"
                         android:textSize="13dp"
-                        android:layout_marginLeft="277dp"
                         android:layout_marginTop="7dp"
                         android:textColor="@android:color/black"
                         />
