@@ -2,29 +2,27 @@ package com.example.naegong_app;
 
 import android.app.Dialog;
 import android.content.Context;
-<<<<<<< HEAD
 import android.content.Intent;
 import android.os.Bundle;
-=======
-import android.util.TypedValue;
-import android.view.Gravity;
->>>>>>> de0d1796355a0975ba96d2265ee2bdbb4a58f638
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-<<<<<<< HEAD
 import androidx.annotation.NonNull;
 
 public class Addroom_dialog extends Dialog{
 
     private CustomDialogClickListener customDialogClickListener;
-=======
-public class Addroom_dialog {
->>>>>>> de0d1796355a0975ba96d2265ee2bdbb4a58f638
     private Context context;
+    private EditText roomname, hashtag, num;
+    private Button save, cancel;
+    private boolean mode = false;
+    public Addroom_dialog(@NonNull Context context, CustomDialogClickListener customDialogClickListener) {
+        super(context);
+        this.context = context;
+        this.customDialogClickListener = customDialogClickListener;
+    }
 
-<<<<<<< HEAD
     public void setmode(Boolean m){ // study room mode에 따라 달라짐.
         mode = m; //False : 소리, 마이크 켜짐, True : 조용히 공부
     }
@@ -60,11 +58,13 @@ public class Addroom_dialog {
             this.customDialogClickListener.onNegativeClick(); //취소 버튼 (아직 없엉)
             dismiss();
         });
-=======
-    public Addroom_dialog(Context context){
-        this.context = context;
->>>>>>> de0d1796355a0975ba96d2265ee2bdbb4a58f638
     }
+}
+
+/*
+public class Addroom_dialog {
+    private Context context;
+    public Addroom_dialog(Context context){ this.context = context; }
 
     // 호출할 다이얼로그 함수를 정의한다.
     public void callFunction() {
@@ -82,16 +82,23 @@ public class Addroom_dialog {
         dlg.show();
 
         // 커스텀 다이얼로그의 각 위젯들을 정의한다.
-        final EditText roomname = (EditText) dlg.findViewById(R.id.roomname_type); //방 이름
-        final EditText hashtag = (EditText) dlg.findViewById(R.id.hashtag_type); //해시태그
-        final EditText number = (EditText) dlg.findViewById(R.id.number_type); //인원 수
-        final Button okButton = (Button) dlg.findViewById(R.id.makestudyroom);
+        EditText roomname = (EditText) dlg.findViewById(R.id.roomname_type); //방 이름
+        EditText hashtag = (EditText) dlg.findViewById(R.id.hashtag_type); //해시태그
+        EditText number = (EditText) dlg.findViewById(R.id.number_type); //인원 수
+
+        String roomname_str = roomname.getText().toString();
+        String hashtag_str = hashtag.getText().toString();
+        String number_str = number.getText().toString();
+
+
+
+        Button okButton = (Button) dlg.findViewById(R.id.makestudyroom);
 
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int number_s = Integer.parseInt(number.getText().toString());
-                if(number_s > 10){
+                if(number_s > 20){
                     //토스트 메세지로 경고창
                     Toast toast = Toast.makeText(context, "최대 인원 수는 10명입니다.", Toast.LENGTH_SHORT);
                     //토스트 메시지 띄울 위치
@@ -105,11 +112,20 @@ public class Addroom_dialog {
                     //토스트 메시지 위치 최종 지정
                     toast.setGravity(Gravity.CENTER, offsetX, offsetY);
                     toast.show();
-
                 } else{
-                    //인원 수나 해시태그, 이름에 문제 없으면 intent로 방 액티비티 넘겨주기
 
+
+                    //인원 수나 해시태그, 이름에 문제 없으면 intent로 방 액티비티 넘겨주기
+                    Intent intent =  new Intent(dlg.getContext(), StudyActivity.class);
+                    intent.putExtra("roomname", roomname_str);
+                    intent.putExtra("hashtag", hashtag_str);
+                    intent.putExtra("number", number_str);
+
+                    dlg.getContext().startActivity(intent);
+
+                    System.out.println("else");
                 }
+
                 // '확인' 버튼 클릭시 메인 액티비티에서 설정한 main_label에
                 // 커스텀 다이얼로그에서 입력한 메시지를 대입한다.
 //                main_label.setText(roomname.getText().toString());
@@ -122,7 +138,9 @@ public class Addroom_dialog {
                 // 커스텀 다이얼로그를 종료한다.
                 dlg.dismiss();
             }
+
         });
     }
-}
 
+}
+*/
