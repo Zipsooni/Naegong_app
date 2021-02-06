@@ -57,6 +57,7 @@ public class Hometab extends Fragment {
                 addRoom.setCanceledOnTouchOutside(true);
                 addRoom.setCancelable(true);
                 addRoom.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+                addRoom.setmode(false);
                 addRoom.show();
            // 지키 맘대로 부분
                 //     Addroom_dialog addRoom = new Addroom_dialog(context); //방 생성하는 다이얼로그 변수

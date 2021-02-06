@@ -34,11 +34,15 @@ public class Addroom_dialog extends Dialog{
     private Context context;
     private EditText roomname, hashtag, num;
     private Button save, cancel;
-
+    private boolean mode = false;
     public Addroom_dialog(@NonNull Context context, CustomDialogClickListener customDialogClickListener) {
         super(context);
         this.context = context;
         this.customDialogClickListener = customDialogClickListener;
+    }
+
+    public void setmode(Boolean m){ // study room mode에 따라 달라짐.
+        mode = m; //False : 소리, 마이크 켜짐, True : 조용히 공
     }
 
     @Override
@@ -59,22 +63,15 @@ public class Addroom_dialog extends Dialog{
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { // 방만들기 버튼 누르면 Jitsi 실행
                 Intent intent = new Intent(context, StudyActivity.class);
                 intent.putExtra("roomname", roomname.getText().toString());
+                intent.putExtra("hashtag", hashtag.getText().toString());
+                intent.putExtra("num", num.getText().toString());
+                intent.putExtra("mode", mode);
                 context.startActivity(intent);
             }
         });
-        /*
-        save.setOnClickListener(v->{
-            Intent intent =  new Intent(context, StudyActivity.class);
-            intent.putExtra("roomname", roomname_str);
-            //intent.putExtra("hashtag", hashtag_str);
-            //intent.putExtra("number", number_str);
-            context.startActivity(intent);
-            this.customDialogClickListener.onPositiveClick(); // 스터디룸 생성 버튼 클릭
-            dismiss();
-        });*/
         cancel.setOnClickListener(v->{
             this.customDialogClickListener.onNegativeClick(); //취소 버튼 (아직 없엉)
             dismiss();

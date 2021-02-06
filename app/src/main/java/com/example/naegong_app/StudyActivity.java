@@ -24,9 +24,9 @@ public class StudyActivity extends JitsiMeetActivity{
         //intent data 수
         Intent intent = new Intent(this.getIntent());
         String roomname = intent.getExtras().getString("roomname");
-        System.out.println("방 이름 " + roomname);
-        //String hashtag = intent.getExtras().getString("hashtag");
-        //String number = intent.getExtras().getString("number");
+        String hashtag = intent.getExtras().getString("hashtag");
+        String number = intent.getExtras().getString("number");
+        Boolean mode = intent.getExtras().getBoolean("mode");
 
         //jitsi meet room 개설
        try {
@@ -34,7 +34,7 @@ public class StudyActivity extends JitsiMeetActivity{
                     = new JitsiMeetConferenceOptions.Builder()
                     .setServerURL(new URL("https://meet.jit.si"))
                     .setRoom(roomname)
-                    .setAudioMuted(false)
+                    .setAudioMuted(mode)
                     .setVideoMuted(false)
                     .setAudioOnly(false)
                     .setWelcomePageEnabled(false)
