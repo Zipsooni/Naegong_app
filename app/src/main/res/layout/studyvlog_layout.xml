@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_app_bar_contents"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null"
+    app:layout_collapseMode="parallax"
+    app:layout_constraintBottom_toBottomOf="parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center_horizontal">
 
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/studyvlogimg"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:src="@drawable/studyvlog_img"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            />
+
+        <TextView
+            android:id="@+id/studyvlogname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Study Vlog"
+            android:fontFamily="@font/typo"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:layout_toRightOf="@id/studyvlogimg"
+            android:layout_marginTop="28dp"
+            android:layout_marginLeft="20dp"/>
+
+
+        <ImageView
+            android:id="@+id/studynote"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/study_note"
+            android:layout_marginTop="28dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"/>
+
+            <VideoView
+                android:id="@+id/studyvlog_video"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_below="@+id/studynote"
+                android:layout_marginTop="30dp"/>
+
+
+
+        </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

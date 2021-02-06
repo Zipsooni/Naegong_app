@@ -2,34 +2,84 @@ package com.example.naegong_app;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.kakao.auth.ApiErrorCode;
+import com.kakao.auth.AuthType;
+import com.kakao.auth.ISessionCallback;
+import com.kakao.auth.Session;
+import com.kakao.network.ErrorResult;
+import com.kakao.usermgmt.LoginButton;
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.MeV2ResponseCallback;
+import com.kakao.usermgmt.response.MeV2Response;
+import com.kakao.util.exception.KakaoException;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    private SessionCallback sessionCallback;
+    Session session;
+    Button kakaologin;
+    LoginButton btn_kakao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent in = new Intent(MainActivity.this, Mainpage.class);
-        startActivity(in);
-/*
-        FloatingActionButton fab = findViewById(R.id.addRoom);
-        fab.setOnClickListener(new View.OnClickListener() {
+
+        sessionCallback = new SessionCallback();
+        session = Session.getCurrentSession();
+        //session.addCallback(sessionCallback);
+
+        //로그인 되어 있으면 바로 홈화면으로 넘겨줌
+        if(session.checkAndImplicitOpen() == true){
+            Intent intent = new Intent(getApplicationContext(), Mainpage.class);
+            startActivity(intent);
+        }
+
+
+        kakaologin = findViewById(R.id.kakao_login);
+        btn_kakao = findViewById(R.id.btn_kakao_login);
+
+        kakaologin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                if (sessionCallback == null) {
+                    session.addCallback(sessionCallback);
+                }
+                session.addCallback(sessionCallback);
+                btn_kakao.performClick();
             }
-        });*/
+        });
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        // 세션 콜백 삭제
+        Session.getCurrentSession().removeCallback(sessionCallback);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        // 카카오톡|스토리 간편로그인 실행 결과를 받아서 SDK로 전달
+        if (Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
+            return;
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -50,5 +100,44 @@ public class MainActivity extends AppCompatActivity {
 
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private class SessionCallback implements ISessionCallback {
+        @Override
+        public void onSessionOpened() {
+            UserManagement.getInstance().me(new MeV2ResponseCallback() {
+                @Override
+                public void onFailure(ErrorResult errorResult) {
+                    int result = errorResult.getErrorCode();
+
+                    if (result == ApiErrorCode.CLIENT_ERROR_CODE) {
+                        Toast.makeText(getApplicationContext(), "네트워크 연결이 불안정합니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "로그인 도중 오류가 발생했습니다: " + errorResult.getErrorMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+
+                @Override
+                public void onSessionClosed(ErrorResult errorResult) {
+                    Toast.makeText(getApplicationContext(), "세션이 닫혔습니다. 다시 시도해 주세요: " + errorResult.getErrorMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+
+                @Override
+                public void onSuccess(MeV2Response result) {
+                    Toast.makeText(getApplicationContext(), "로그인 성공! ", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), Mainpage.class);
+                    startActivity(intent);
+                }
+            });
+        }
+
+        @Override
+        public void onSessionOpenFailed(KakaoException e) {
+            Toast.makeText(getApplicationContext(), "로그인 도중 오류가 발생했습니다. 인터넷 연결을 확인해주세요: " + e.toString(), Toast.LENGTH_SHORT).show();
+            System.out.println("로그인 도중 오류가 발생했습니다. 인터넷 연결을 확인해주세요");
+        }
     }
 }

@@ -18,15 +18,15 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/studyroomname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="스터디룸 : "
-                android:textSize="15dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="15dp"
-                android:fontFamily="@font/typo"/>
+        <TextView
+            android:id="@+id/studyroomname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="스터디룸 : "
+            android:textSize="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="15dp"
+            android:fontFamily="@font/typo"/>
 
             <EditText
                 android:id="@+id/roomname_type"
@@ -124,19 +124,6 @@
                 android:fontFamily="@font/typo"
                 android:layout_below="@+id/howmany"
                 android:layout_marginLeft="177dp"
-                android:layout_marginTop="20dp"
-                android:onClick="onClick"/>
-
-            <Button
-                android:id="@+id/cancelstudyroom"
-                android:layout_width="15dp"
-                android:layout_height="30dp"
-                android:text="x"
-                android:textSize="10dp"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/hashtag_deco"
-                android:fontFamily="@font/typo"
-                android:layout_toRightOf="@+id/makestudyroom"
                 android:layout_marginTop="20dp"/>
 
 

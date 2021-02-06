@@ -4,7 +4,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.CalendarView;
+import android.widget.GridView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +16,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ArrayList;
 
 public class Mainpage extends AppCompatActivity {
 
@@ -22,9 +28,9 @@ public class Mainpage extends AppCompatActivity {
 
     //여기엔 적용할 프래그먼트 화면
     private Viewpage viewPage;
-    private Stickerbooktab frag1;
     private Rankingtab frag2;
-    private Studyvlogtab frag4;
+    private Studyvlogtab frag3;
+    private Stickerbooktab frag4;
     private Settingtab frag5;
 
 
@@ -42,16 +48,16 @@ public class Mainpage extends AppCompatActivity {
             {
                 switch (menuItem.getItemId())
                 {
-                    case R.id.stickertabmenu:
+                    case R.id.Hometabmenu:
                         setFrag(0);
                         break;
                     case R.id.rankingtabmenu:
                         setFrag(1);
                         break;
-                    case R.id.Hometabmenu:
+                    case R.id.studyvlogtabmenu:
                         setFrag(2);
                         break;
-                    case R.id.studyvlogtabmenu:
+                    case R.id.stickertabmenu:
                         setFrag(3);
                         break;
                     case R.id.settingtabmenu:
@@ -69,9 +75,9 @@ public class Mainpage extends AppCompatActivity {
         });*/
         //프레그먼트 화면 함수
         viewPage = new Viewpage();
-        frag1 = new Stickerbooktab();
+        frag4 = new Stickerbooktab();
         frag2 = new Rankingtab();
-        frag4 = new Studyvlogtab();
+        frag3 = new Studyvlogtab();
         frag5 = new Settingtab();
         setFrag(0); // 첫 프래그먼트 화면 지정
     }
@@ -84,7 +90,7 @@ public class Mainpage extends AppCompatActivity {
         switch (n)
         {
             case 0:
-                ft.replace(R.id.bottom_layout,frag1);
+                ft.replace(R.id.bottom_layout,viewPage);
                 ft.commit();
                 break;
 
@@ -94,7 +100,7 @@ public class Mainpage extends AppCompatActivity {
                 break;
 
             case 2:
-                ft.replace(R.id.bottom_layout,viewPage);
+                ft.replace(R.id.bottom_layout,frag3);
                 ft.commit();
                 break;
 
@@ -114,5 +120,7 @@ public class Mainpage extends AppCompatActivity {
         super.onStart();
         Log.i("Main", "onStart()");
     }
+
+
 
 }
