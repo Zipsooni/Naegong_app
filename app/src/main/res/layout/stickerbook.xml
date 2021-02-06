@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/stickerbook"
+        android:adjustViewBounds="true"
+        android:layout_marginTop = "50dp"
+        android:id = "@+id/stickerimg"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text = "STICKER STAGE"
+        android:layout_below="@+id/stickerimg"
+        android:gravity="center"
+        android:textSize = "25sp"
+        android:id = "@+id/stickerstage"/>
+
+    <ImageButton
+        android:id = "@+id/stage1"
+        android:layout_width="155dp"
+        android:layout_height="120dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="35dp"
+        android:background="@drawable/stage_background"
+        android:layout_below = "@+id/stickerstage"
+        android:src="@drawable/stage01"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stage1"
+        android:text = "STAGE 01"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="10dp"/>
+    <ImageButton
+        android:id = "@+id/stage2"
+        android:layout_width="155dp"
+        android:layout_height="120dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/stage_background"
+        android:layout_below="@id/stickerstage"
+        android:layout_toRightOf = "@+id/stage1"
+        android:src="@drawable/stage02"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stage2"
+        android:text = "STAGE 02"
+        android:layout_marginLeft="270dp"
+        android:layout_marginTop="10dp"/>
+
+
+</RelativeLayout>

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,8 +35,25 @@ public class Hometab2 extends Fragment {
             dbaddroom.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Addroom_dialog addRoom = new Addroom_dialog(context); //방 생성하는 다이얼로그 변수
-                    addRoom.callFunction();
+                    Addroom_dialog addRoom = new Addroom_dialog(getContext(), new
+                            CustomDialogClickListener(){
+                                @Override
+                                public void onPositiveClick() {
+
+                                }
+
+                                @Override
+                                public void onNegativeClick() {
+
+                                }
+                            });
+                    addRoom.setCanceledOnTouchOutside(true);
+                    addRoom.setCancelable(true);
+                    addRoom.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+                    addRoom.setmode(true);
+                    addRoom.show();
+                    //Addroom_dialog addRoom = new Addroom_dialog(context); //방 생성하는 다이얼로그 변수
+                    //addRoom.callFunction();
                 }
             });
 
