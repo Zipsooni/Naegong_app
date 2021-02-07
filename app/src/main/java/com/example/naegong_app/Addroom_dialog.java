@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -55,31 +56,30 @@ public class Addroom_dialog extends Dialog{
                 try {
                     System.out.println("try");
                     System.out.println("roomname2"+roomname.getText().toString());
-                    JitsiMeetConferenceOptions options
-                            = new JitsiMeetConferenceOptions.Builder()
-                            .setServerURL(new URL("https://meet.jit.si"))
-                            .setRoom(roomname.getText().toString())
-                            .setAudioMuted(mode) //homeatab1에서는 소리 켜짐, hometab2에서는 소리 꺼
-                            .setVideoMuted(false)
-                            .setAudioOnly(false)
-                            .setWelcomePageEnabled(false)
-                            .setFeatureFlag("pip.enabled", false)
-                            .setFeatureFlag("chat.enabled", false)
-                            .build();
+                    if (roomname.getText().toString().length() > 0) {
+                        JitsiMeetConferenceOptions options
+                                = new JitsiMeetConferenceOptions.Builder()
+                                .setServerURL(new URL("https://meet.jit.si"))
+                                .setRoom(roomname.getText().toString())
+                                .setAudioMuted(mode) //homeatab1에서는 소리 켜짐, hometab2에서는 소리 꺼
+                                .setVideoMuted(false)
+                                .setAudioOnly(false)
+                                .setWelcomePageEnabled(false)
+                                .setFeatureFlag("pip.enabled", false) // pip mode 불가
+                                .setFeatureFlag("chat.enabled", false) // 채팅 불가
+                                .setFeatureFlag("audio-mute.enabled", false) //음소거 버튼 버튼 표시 안 함
+                                .setFeatureFlag("invite.enabled", false) // 사람 초대 기능 불가
+                                .setFeatureFlag("conference-timer.enabled", false) // 회의 창 타이머 off
+                                .build();
 
-                    JitsiMeetActivity.launch(getContext(), options);
-                    System.out.println("try");
+                        JitsiMeetActivity.launch(getContext(), options);
+                        System.out.println("try");
+                    }
 
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                     System.out.println("catch");
                 }
-//                Intent intent = new Intent(context, StudyActivity.class);
-//                intent.putExtra("roomname", roomname.getText().toString());
-//                intent.putExtra("hashtag", hashtag.getText().toString());
-//                intent.putExtra("num", num.getText().toString());
-//                intent.putExtra("mode", mode);
-//                context.startActivity(intent);
             }
         });
         cancel.setOnClickListener(v->{
@@ -91,8 +91,11 @@ public class Addroom_dialog extends Dialog{
     @Override
     public void onBackPressed() {
         System.out.println("Back Pressed");
+        dismiss();
         super.onBackPressed();
     }
+
+
 }
 
 /*
