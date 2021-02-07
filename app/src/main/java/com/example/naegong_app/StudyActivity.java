@@ -29,13 +29,14 @@ public class StudyActivity extends AppCompatActivity {
         String hashtag = intent.getExtras().getString("hashtag");
         String number = intent.getExtras().getString("number");
         Boolean mode = intent.getExtras().getBoolean("mode");
+
         //jitsi meet room 개설
        try {
             JitsiMeetConferenceOptions options
                     = new JitsiMeetConferenceOptions.Builder()
-                    .setServerURL(new URL("https://meet.jit.si"))
-                    .setRoom(roomname)
-                    .setAudioMuted(mode)
+                    .setServerURL(new URL("https://meet.jit.si")) // 자체서버로 변경해야함.
+                    .setRoom(roomname) // 회의방 이름 설정
+                    .setAudioMuted(mode) // hometab1에서 만들면 false
                     .setVideoMuted(false)
                     .setAudioOnly(false)
                     .setWelcomePageEnabled(false)
@@ -53,7 +54,6 @@ public class StudyActivity extends AppCompatActivity {
     @Override
     public void onDestroy() {
         System.out.println("onDestroy()");
-        startActivity(new Intent(this,MainActivity.class));
         super.onDestroy();
     }
 
@@ -61,7 +61,6 @@ public class StudyActivity extends AppCompatActivity {
     public void finish() {
         System.out.println("finish()");
         startActivity(new Intent(this,MainActivity.class));
-
         super.finish();
         }
 

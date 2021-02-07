@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
     OAuthLogin mOAuthLoginModule;
     Context mContext;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 OAuthLoginHandler mOAuthLoginHandler = new OAuthLoginHandler() {
                     @Override
                     public void run(boolean success) {
-                        if(success){
+                         if(success){
                             String accessToken = mOAuthLoginModule.getAccessToken(mContext);
                             String refreshToken = mOAuthLoginModule.getRefreshToken(mContext);
                             long expiresAt = mOAuthLoginModule.getExpiresAt(mContext);
@@ -107,6 +105,9 @@ public class MainActivity extends AppCompatActivity {
                             Log.i("LoginData","refreshToken : "+ refreshToken);
                             Log.i("LoginData","expiresAt : "+ expiresAt);
                             Log.i("LoginData","tokenType : "+ tokenType);
+
+                            Intent intent = new Intent(mContext, Mainpage.class);
+                            startActivity(intent);
 
                         } else {
                             String errorCode = mOAuthLoginModule
