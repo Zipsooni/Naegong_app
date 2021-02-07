@@ -205,6 +205,11 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onSuccess(MeV2Response result) {
+                    //카카오 로그인 성공했을 때 받아오는 사용자 정보
+                    Log.e("사용자 정보 : ", result.toString());
+                    //Log.e("UserProfile", result.getId() + "");
+                    //UserProfile{nickname='최영훈', thumbnailImagePath='', profileImagePath='', code='null', serviceUserId='0', remainingInviteCount='0', remainingGroupMsgCount='0', properties={}}
+
                     Toast.makeText(getApplicationContext(), "로그인 성공! ", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), Mainpage.class);
                     startActivity(intent);
