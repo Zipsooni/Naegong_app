@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "999920612894",
+    "project_id": "naegong-12803",
+    "storage_bucket": "naegong-12803.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999920612894:android:25e126226290bf3b5f200f",
+        "android_client_info": {
+          "package_name": "com.example.naegong_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "999920612894-ge06ot7l6p5mo0i8i5vb9dhl09p4r63f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.naegong_app",
+            "certificate_hash": "2cc91718732656a3aa8d6c566bb70a3339830223"
+          }
+        },
+        {
+          "client_id": "999920612894-be5fk0g9899gej8158i3bcs49avbvnn9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7hkbydp6qesnsaDrEjG3jO55STroNMjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "999920612894-be5fk0g9899gej8158i3bcs49avbvnn9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

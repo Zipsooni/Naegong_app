@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
 
 android {
     compileSdkVersion 29
@@ -76,5 +78,8 @@ dependencies {
     implementation "androidx.legacy:legacy-support-core-utils:$android_x_version"
     implementation "androidx.browser:browser:$android_x_version"
     implementation "androidx.legacy:legacy-support-v4:$android_x_version"
+
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:26.4.0')
 
 }
