@@ -3,6 +3,7 @@ package com.example.naegong_app;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -28,6 +29,8 @@ import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
 
+import static com.nhn.android.naverlogin.OAuthLogin.mOAuthLoginHandler;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -39,11 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
     //네이버 로그인 변수
     Button naverlogin;
-
-    //네이버
     OAuthLogin mOAuthLoginModule;
     Context mContext;
-
 
 
     @Override
@@ -55,14 +55,23 @@ public class MainActivity extends AppCompatActivity {
 
         sessionCallback = new SessionCallback();
         session = Session.getCurrentSession();
-        //session.addCallback(sessionCallback);
 
-        //로그인 되어 있으면 바로 홈화면으로 넘겨줌
+        // 카톡로그인 되어 있으면 바로 홈화면으로 넘겨줌
         if(session.checkAndImplicitOpen() == true){
             Intent intent = new Intent(getApplicationContext(), Mainpage.class);
             startActivity(intent);
         }
 
+
+
+        //네이버 로그인 되어 있으면 바로 홈화면으로 넘겨줌
+        mOAuthLoginModule = OAuthLogin.getInstance();
+        String loginstate = mOAuthLoginModule.getState(getApplicationContext()).toString();
+
+        if(!loginstate.equals("NEED_LOGIN")){
+            Intent intent = new Intent(getApplicationContext(), Mainpage.class);
+            startActivity(intent);
+        }
 
         kakaologin = findViewById(R.id.kakao_login);
         btn_kakao = findViewById(R.id.btn_kakao_login);
@@ -82,6 +91,13 @@ public class MainActivity extends AppCompatActivity {
         naverlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(loginstate.equals("NEED_LOGIN") ){
+                    mOAuthLoginModule.logout(mContext);
+                    mOAuthLoginModule.logoutAndDeleteToken(mContext);
+
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://nid.naver.com/nidlogin.logout"));
+                    startActivity(intent);
+                }
                 mOAuthLoginModule = OAuthLogin.getInstance();
                 mOAuthLoginModule.init(
                         mContext
@@ -93,20 +109,24 @@ public class MainActivity extends AppCompatActivity {
 
                 );
 
+
                 @SuppressLint("HandlerLeak")
                 OAuthLoginHandler mOAuthLoginHandler = new OAuthLoginHandler() {
                     @Override
                     public void run(boolean success) {
                         if(success){
-                            String accessToken = mOAuthLoginModule.getAccessToken(mContext);
-                            String refreshToken = mOAuthLoginModule.getRefreshToken(mContext);
-                            long expiresAt = mOAuthLoginModule.getExpiresAt(mContext);
-                            String tokenType = mOAuthLoginModule.getTokenType(mContext);
+//                            String accessToken = mOAuthLoginModule.getAccessToken(mContext);
+//                            String refreshToken = mOAuthLoginModule.getRefreshToken(mContext);
+//                            long expiresAt = mOAuthLoginModule.getExpiresAt(mContext);
+//                            String tokenType = mOAuthLoginModule.getTokenType(mContext);
+//
+//                            Log.i("LoginData","accessToken : "+ accessToken);
+//                            Log.i("LoginData","refreshToken : "+ refreshToken);
+//                            Log.i("LoginData","expiresAt : "+ expiresAt);
+//                            Log.i("LoginData","tokenType : "+ tokenType);
 
-                            Log.i("LoginData","accessToken : "+ accessToken);
-                            Log.i("LoginData","refreshToken : "+ refreshToken);
-                            Log.i("LoginData","expiresAt : "+ expiresAt);
-                            Log.i("LoginData","tokenType : "+ tokenType);
+                            Intent intent = new Intent(getApplicationContext(), Mainpage.class);
+                            startActivity(intent);
 
                         } else {
                             String errorCode = mOAuthLoginModule
@@ -120,7 +140,6 @@ public class MainActivity extends AppCompatActivity {
                 mOAuthLoginModule.startOauthLoginActivity(MainActivity.this, mOAuthLoginHandler);
             }
         });
-
     }
 
     @Override
