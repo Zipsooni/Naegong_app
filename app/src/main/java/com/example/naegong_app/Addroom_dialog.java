@@ -50,43 +50,23 @@ public class Addroom_dialog extends Dialog{
 
 
         save.setOnClickListener(new View.OnClickListener() {
-            String roomname_str = roomname.getText().toString();
+
             @Override
             public void onClick(View v) { // 방만들기 버튼 누르면 Jitsi 실행
+
                 try {
-                    System.out.println("try");
-                    System.out.println("roomname2"+roomname.getText().toString());
-                    if (roomname.getText().toString().length() > 0) {
-                        JitsiMeetConferenceOptions options
-                                = new JitsiMeetConferenceOptions.Builder()
-                                .setServerURL(new URL("https://meet.jit.si"))
-                                .setRoom(roomname.getText().toString())
-                                .setAudioMuted(mode) //homeatab1에서는 소리 켜짐, hometab2에서는 소리 꺼
-                                .setVideoMuted(false)
-                                .setAudioOnly(false)
-                                .setWelcomePageEnabled(false)
-                                .setFeatureFlag("pip.enabled", false) // pip mode 불가
-                                .setFeatureFlag("chat.enabled", false) // 채팅 불가
-                                .setFeatureFlag("audio-mute.enabled", false) //음소거 버튼 버튼 표시 안 함
-                                .setFeatureFlag("invite.enabled", false) // 사람 초대 기능 불가
-                                .setFeatureFlag("conference-timer.enabled", false) // 회의 창 타이머 off
-                                .build();
+                    if (roomname.getText().toString().length() > 0)  roomopen();
 
-                        JitsiMeetActivity.launch(getContext(), options);
-                        System.out.println("try");
-                    }
-
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                    System.out.println("catch");
-                }
+                } catch (MalformedURLException e) { e.printStackTrace(); }
             }
         });
+
         cancel.setOnClickListener(v->{
             this.customDialogClickListener.onNegativeClick(); //취소 버튼 (아직 없엉)
             dismiss();
         });
     }
+
 
     @Override
     public void onBackPressed() {
@@ -95,6 +75,25 @@ public class Addroom_dialog extends Dialog{
         super.onBackPressed();
     }
 
+    public void roomopen() throws MalformedURLException {
+        JitsiMeetConferenceOptions options
+                = new JitsiMeetConferenceOptions.Builder()
+                .setServerURL(new URL("https://meet.jit.si"))
+                .setRoom(roomname.getText().toString())
+                .setAudioMuted(mode) //homeatab1에서는 소리 켜짐, hometab2에서는 소리 꺼
+                .setVideoMuted(false)
+                .setAudioOnly(false)
+                .setWelcomePageEnabled(false)
+                .setFeatureFlag("pip.enabled", false) // pip mode 불가
+                .setFeatureFlag("chat.enabled", false) // 채팅 불가
+                .setFeatureFlag("overflow-menu.enabled", false)
+                .setFeatureFlag("audio-mute.enabled", false) //음소거 버튼 버튼 표시 안 함
+                .setFeatureFlag("invite.enabled", false) // 사람 초대 기능 불가
+                .setFeatureFlag("conference-timer.enabled", false) // 회의 창 타이머 off
+                .build();
+
+        JitsiMeetActivity.launch(getContext(), options);
+    }
 
 }
 

@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Telephony;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +26,19 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class Hometab extends Fragment {
 
     Context context;
-
     FloatingActionButton tgaddroom; //플로팅 액션 버튼(방 생성버튼)
+
+    public Addroom_dialog addRoom = new Addroom_dialog(getContext(), new CustomDialogClickListener() {
+        @Override
+        public void onPositiveClick() {
+
+        }
+
+        @Override
+        public void onNegativeClick() {
+
+        }
+    });
 
 
     @Nullable
@@ -43,22 +55,22 @@ public class Hometab extends Fragment {
         tgaddroom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Addroom_dialog addRoom = new Addroom_dialog(getContext(), new
-                        CustomDialogClickListener(){
-                            @Override
-                            public void onPositiveClick() {
-                            }
-
-                            @Override
-                            public void onNegativeClick() {
-
-                            }
-                        });
+//                Addroom_dialog addRoom = new Addroom_dialog(getContext(), new
+//                        CustomDialogClickListener(){
+//                            @Override
+//                            public void onPositiveClick() {
+//                            }
+//
+//                            @Override
+//                            public void onNegativeClick() {
+//
+//                            }
+//                        });
                 addRoom.setCanceledOnTouchOutside(true);
                 addRoom.setCancelable(true);
                 addRoom.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
                 addRoom.setmode(false);
-                addRoom.show();
+                addRoom.show(); // 여기서 오류 ?? E/WindowManager: android.view.WindowLeaked: Activity com.example.naegong_app.Mainpage has leaked window DecorView@fc96368[] that was originally added here
                 // 지키 맘대로 부분
                 //     Addroom_dialog addRoom = new Addroom_dialog(context); //방 생성하는 다이얼로그 변수
                 //     addRoom.callFunction();
@@ -81,4 +93,9 @@ public class Hometab extends Fragment {
 
     }
 
+    @Override
+    public void onPause() {
+        addRoom.dismiss();
+        super.onPause();
+    }
 }
