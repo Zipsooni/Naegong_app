@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.LogoutResponseCallback;
+import com.nhn.android.naverlogin.OAuthLogin;
 
 public class Settingtab extends Fragment {
 
@@ -28,6 +29,8 @@ public class Settingtab extends Fragment {
     LinearLayout customerservice;
     LinearLayout currentversion;
     LinearLayout logout;
+
+    OAuthLogin mOAuthLoginModule;
 
     @Nullable
     @Override
@@ -47,6 +50,8 @@ public class Settingtab extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //카카오 로그아웃
                 UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
                     @Override
                     public void onCompleteLogout() {
@@ -55,6 +60,8 @@ public class Settingtab extends Fragment {
                         startActivity(intent);
                     }
                 });
+
+                //mOAuthLoginModule.logout(context); //네이버 로그아웃
             }
         });
 

@@ -28,36 +28,66 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-       <Button
-           android:id="@+id/kakao_login"
-           android:layout_width="270dp"
-           android:layout_height="50dp"
-           android:background="@drawable/image_border"
-           android:gravity="center_horizontal"
-           android:text = "카카오로 시작하기"
-           android:textSize="14dp"
-           android:paddingTop="15dp"
-           android:textColor="#000000"
-           android:textStyle="normal"
-           />
+           <Button
+               android:id="@+id/kakao_login"
+               android:layout_width="270dp"
+               android:layout_height="50dp"
+               android:background="@drawable/image_border"
+               android:gravity="center_horizontal"
+               android:text = "카카오로 시작하기"
+               android:textSize="14dp"
+               android:paddingTop="15dp"
+               android:textColor="#000000"
+               android:textStyle="normal"
+               />
 
-       <ImageView
-           android:layout_width="20dp"
-           android:layout_height="20dp"
-           android:src="@drawable/kakao_account_logo"
-           android:layout_centerVertical="true"
-           android:layout_marginLeft="14dp"/>
+           <ImageView
+               android:layout_width="20dp"
+               android:layout_height="20dp"
+               android:src="@drawable/kakao_account_logo"
+               android:layout_centerVertical="true"
+               android:layout_marginLeft="14dp"/>
 
 
-
-        <com.kakao.usermgmt.LoginButton
-            android:id="@+id/btn_kakao_login"
-            android:layout_width="260dp"
-            android:layout_height="45dp"
-            android:visibility="gone"
-            android:layout_centerHorizontal="true"
-            />
+            <com.kakao.usermgmt.LoginButton
+                android:id="@+id/btn_kakao_login"
+                android:layout_width="260dp"
+                android:layout_height="45dp"
+                android:visibility="gone"
+                android:layout_centerHorizontal="true"
+                />
         </RelativeLayout>
 
-    </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/naver_login"
+                android:layout_width="270dp"
+                android:layout_height="50dp"
+                android:background="@drawable/image_border"
+                android:gravity="center_horizontal"
+                android:text = "네이버로 시작하기"
+                android:textSize="14dp"
+                android:paddingTop="15dp"
+                android:textColor="#000000"
+                android:textStyle="normal"
+                android:layout_marginTop="10dp"
+                />
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/naver_icon"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="46dp"
+                android:layout_marginLeft="14dp"
+                />
+
+        </RelativeLayout>
+
+        </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
