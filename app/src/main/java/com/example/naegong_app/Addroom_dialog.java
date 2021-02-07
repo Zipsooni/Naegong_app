@@ -62,7 +62,7 @@ public class Addroom_dialog extends Dialog{
         });
 
         cancel.setOnClickListener(v->{
-            this.customDialogClickListener.onNegativeClick(); //취소 버튼 (아직 없엉)
+            this.customDialogClickListener.onNegativeClick(); //취소 버튼
             dismiss();
         });
     }

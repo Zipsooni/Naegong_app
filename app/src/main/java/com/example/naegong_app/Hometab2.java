@@ -4,6 +4,7 @@ package com.example.naegong_app;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.provider.Telephony;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +21,7 @@ public class Hometab2 extends Fragment {
     Context context;
 
     FloatingActionButton dbaddroom; //플로팅 액션 버튼(방 생성버튼)
-
+    Addroom_dialog addRoom;
 
     @Nullable
     @Override
@@ -35,18 +36,7 @@ public class Hometab2 extends Fragment {
         dbaddroom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Addroom_dialog addRoom = new Addroom_dialog(getContext(), new
-                        CustomDialogClickListener(){
-                            @Override
-                            public void onPositiveClick() {
 
-                            }
-
-                            @Override
-                            public void onNegativeClick() {
-
-                            }
-                        });
                 addRoom.setCanceledOnTouchOutside(true);
                 addRoom.setCancelable(true);
                 addRoom.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
