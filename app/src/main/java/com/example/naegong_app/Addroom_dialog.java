@@ -7,8 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+
+import org.jitsi.meet.sdk.JitsiMeetActivity;
+import org.jitsi.meet.sdk.JitsiMeetConferenceOptions;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class Addroom_dialog extends Dialog{
 
@@ -34,24 +41,45 @@ public class Addroom_dialog extends Dialog{
 
         //항목 선언
         roomname = (EditText)findViewById(R.id.roomname_type);
+        System.out.println("roomname"+ roomname.getText().toString());
         hashtag = (EditText)findViewById(R.id.hashtag_type);
         num = (EditText)findViewById(R.id.number_type);
         save = (Button)findViewById(R.id.makestudyroom);
         cancel = (Button)findViewById(R.id.cancelstudyroom);
 
-        String roomname_str = roomname.getText().toString();
-        String hashtag_str = hashtag.getText().toString();
-        String number_str = num.getText().toString();
+
 
         save.setOnClickListener(new View.OnClickListener() {
+            String roomname_str = roomname.getText().toString();
             @Override
             public void onClick(View v) { // 방만들기 버튼 누르면 Jitsi 실행
-                Intent intent = new Intent(context, StudyActivity.class);
-                intent.putExtra("roomname", roomname.getText().toString());
-                intent.putExtra("hashtag", hashtag.getText().toString());
-                intent.putExtra("num", num.getText().toString());
-                intent.putExtra("mode", mode);
-                context.startActivity(intent);
+                try {
+                    System.out.println("try");
+                    System.out.println("roomname2"+roomname.getText().toString());
+                    if (roomname.getText().toString().length() > 0) {
+                        JitsiMeetConferenceOptions options
+                                = new JitsiMeetConferenceOptions.Builder()
+                                .setServerURL(new URL("https://meet.jit.si"))
+                                .setRoom(roomname.getText().toString())
+                                .setAudioMuted(mode) //homeatab1에서는 소리 켜짐, hometab2에서는 소리 꺼
+                                .setVideoMuted(false)
+                                .setAudioOnly(false)
+                                .setWelcomePageEnabled(false)
+                                .setFeatureFlag("pip.enabled", false) // pip mode 불가
+                                .setFeatureFlag("chat.enabled", false) // 채팅 불가
+                                .setFeatureFlag("audio-mute.enabled", false) //음소거 버튼 버튼 표시 안 함
+                                .setFeatureFlag("invite.enabled", false) // 사람 초대 기능 불가
+                                .setFeatureFlag("conference-timer.enabled", false) // 회의 창 타이머 off
+                                .build();
+
+                        JitsiMeetActivity.launch(getContext(), options);
+                        System.out.println("try");
+                    }
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                    System.out.println("catch");
+                }
             }
         });
         cancel.setOnClickListener(v->{
@@ -59,6 +87,15 @@ public class Addroom_dialog extends Dialog{
             dismiss();
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        System.out.println("Back Pressed");
+        dismiss();
+        super.onBackPressed();
+    }
+
+
 }
 
 /*
