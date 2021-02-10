@@ -84,12 +84,26 @@ public class Addroom_dialog extends Dialog{
                 .setVideoMuted(false)
                 .setAudioOnly(false)
                 .setWelcomePageEnabled(false)
-                .setFeatureFlag("pip.enabled", false) // pip mode 불가
-                .setFeatureFlag("chat.enabled", false) // 채팅 불가
-                .setFeatureFlag("overflow-menu.enabled", false)
-                .setFeatureFlag("audio-mute.enabled", false) //음소거 버튼 버튼 표시 안 함
+
                 .setFeatureFlag("invite.enabled", false) // 사람 초대 기능 불가
+                .setFeatureFlag("chat.enabled", false) // 채팅 불가
+                .setFeatureFlag("filmstrip.enabled", false) // 필름 스트립 사 불가용 (뭔지 모르겠음)
+                .setFeatureFlag("pip.enabled", false) // pip mode 불가
                 .setFeatureFlag("conference-timer.enabled", false) // 회의 창 타이머 off
+
+                // Not working
+                .setFeatureFlag("audio-mute.enabled", false) //음소거 버튼 버튼 표시 안 함, not working
+                .setFeatureFlag("overflow-menu.enabled", false)
+
+                //Unknown function
+                .setFeatureFlag("calendar.enabled", false) // 캘린더 사용 불가
+                .setFeatureFlag("add-people.enabled", false)
+                .setFeatureFlag("video-skips.enabled:", false) // and not working
+                .setFeatureFlag("raise-hand.enabled", false) // and not working
+                .setFeatureFlag("live-streaming.enabled", false)
+
+                //must be checked
+                .setFeatureFlag("recording.enabled", false)
                 .build();
 
         JitsiMeetActivity.launch(getContext(), options);
