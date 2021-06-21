@@ -31,6 +31,7 @@
 이는 온라인 모임에 대한 문화를 선도하여 비대면 중심의 교육 패러다임을 발전시킬 수 있을 것이라 예상된다. 
 
 
+## check out our video : https://youtu.be/5TmdQcC9z6c
 
 
 
