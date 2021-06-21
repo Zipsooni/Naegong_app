@@ -30,9 +30,8 @@
 온라인 공부방뿐만 아니라 온라인 소모임, 그룹회의 등 다양한 회의 장소로 사용할 수 있다. 
 이는 온라인 모임에 대한 문화를 선도하여 비대면 중심의 교육 패러다임을 발전시킬 수 있을 것이라 예상된다. 
 
-
-## check out our video : https://youtu.be/5TmdQcC9z6c
-
+---
+check out our video : https://youtu.be/5TmdQcC9z6c
 
 
 ## Screenshot
@@ -40,9 +39,9 @@
   <table align="center" border="0" >
   <tr>
   <img width="483" alt="스크린샷 2021-06-21 오후 4 50 49" src="https://user-images.githubusercontent.com/51042402/122726578-1d723380-d2b1-11eb-854c-62603ecbc36b.png">
-    <img width="481" alt="스크린샷 2021-06-21 오후 4 50 59" src="https://user-images.githubusercontent.com/51042402/122726689-337ff400-d2b1-11eb-95d5-90efbd8c14f1.png">
-<img width="483" alt="스크린샷 2021-06-21 오후 4 51 05" src="https://user-images.githubusercontent.com/51042402/122726738-3e3a8900-d2b1-11eb-8787-2372a73cb589.png">
-
+   </br><img width="481" alt="스크린샷 2021-06-21 오후 4 50 59" src="https://user-images.githubusercontent.com/51042402/122726689-337ff400-d2b1-11eb-95d5-90efbd8c14f1.png">
+  </br><img width="483" alt="스크린샷 2021-06-21 오후 4 51 05" src="https://user-images.githubusercontent.com/51042402/122726738-3e3a8900-d2b1-11eb-8787-2372a73cb589.png">
+    
 </table>
 </div>
 
